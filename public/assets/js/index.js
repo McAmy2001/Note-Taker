@@ -1,8 +1,13 @@
+// Helper method for generating unique ids
+const uuid = require('../../helpers/uuid');
+
+
 let noteTitle;
 let noteText;
 let saveNoteBtn;
 let newNoteBtn;
 let noteList;
+
 
 if (window.location.pathname === '/notes') {
   noteTitle = document.querySelector('.note-title');
@@ -69,7 +74,8 @@ const renderActiveNote = () => {
 const handleNoteSave = () => {
   const newNote = {
     title: noteTitle.value,
-    text: noteText.value
+    text: noteText.value,
+    id: uuid()
   };
   saveNote(newNote).then(() => {
     getAndRenderNotes();
