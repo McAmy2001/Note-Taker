@@ -1,12 +1,1 @@
-{
-  "notes": [
-    {
-      "Title": "Title4",
-      "Text": "Text4"
-    },
-    {
-      "Title": "Title5",
-      "Text": "Text5"
-    }
-  ]
-}
+[{"title":"Note2","text":"text2"},{"title":"NOte3","text":"text3"},{"title":"Note4","text":"text4"},{"title":"Note 5","text":"text5"}]

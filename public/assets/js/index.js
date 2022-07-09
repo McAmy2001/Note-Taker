@@ -1,5 +1,4 @@
 // Helper method for generating unique ids
-const uuid = require('../../helpers/uuid');
 
 
 let noteTitle;
@@ -16,6 +15,7 @@ if (window.location.pathname === '/notes') {
   newNoteBtn = document.querySelector('.new-note');
   noteList = document.querySelectorAll('.list-container .list-group');
 }
+console.log(noteTitle);
 
 // Show an element
 const show = elem => {
@@ -42,9 +42,20 @@ const saveNote = note =>
   fetch('/api/notes', {
     method: 'POST',
     headers: {
+      Accept: 'application/json',
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(note)
+  })
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    }
+    alert('Error: ' + response.statusText);
+  })
+  .then(postResponse => {
+    console.log(postResponse);
+    alert('Thank you for adding a note!');
   });
 
 const deleteNote = id =>
@@ -75,7 +86,6 @@ const handleNoteSave = () => {
   const newNote = {
     title: noteTitle.value,
     text: noteText.value,
-    id: uuid()
   };
   saveNote(newNote).then(() => {
     getAndRenderNotes();
@@ -115,6 +125,7 @@ const handleNewNoteView = e => {
 };
 
 const handleRenderSaveBtn = () => {
+  console.log(noteTitle.value);
   if (!noteTitle.value.trim() || !noteText.value.trim()) {
     hide(saveNoteBtn);
   } else {
@@ -186,4 +197,4 @@ if (window.location.pathname === '/notes') {
   noteText.addEventListener('keyup', handleRenderSaveBtn);
 }
 
-getAndRenderNotes();
+//getAndRenderNotes();
