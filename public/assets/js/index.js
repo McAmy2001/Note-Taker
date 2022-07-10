@@ -1,6 +1,3 @@
-// Helper method for generating unique ids
-
-
 let noteTitle;
 let noteText;
 let saveNoteBtn;
@@ -15,7 +12,6 @@ if (window.location.pathname === '/notes') {
   newNoteBtn = document.querySelector('.new-note');
   noteList = document.querySelectorAll('.list-container .list-group');
 }
-console.log(noteTitle);
 
 // Show an element
 const show = elem => {
@@ -36,6 +32,11 @@ const getNotes = () =>
     headers: {
       'Content-Type': 'application/json'
     }
+  }).then(response => {
+    if(response.ok) {
+      return response;
+    } 
+    alert('Error: ' + response.statusText);
   });
 
 const saveNote = note =>
@@ -64,7 +65,23 @@ const deleteNote = id =>
     headers: {
       'Content-Type': 'application/json'
     }
-  });
+  })
+  .then(response => {
+    if (response.ok) {
+      alert("Note deleted.");
+    } else {
+      alert('Error: ' + response.statusText);
+    }
+    return response;
+  }).then(response => {
+    response.json()
+  })
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.log(error);
+  })
 
 const renderActiveNote = () => {
   hide(saveNoteBtn);
@@ -125,7 +142,6 @@ const handleNewNoteView = e => {
 };
 
 const handleRenderSaveBtn = () => {
-  console.log(noteTitle.value);
   if (!noteTitle.value.trim() || !noteText.value.trim()) {
     hide(saveNoteBtn);
   } else {
@@ -197,4 +213,4 @@ if (window.location.pathname === '/notes') {
   noteText.addEventListener('keyup', handleRenderSaveBtn);
 }
 
-//getAndRenderNotes();
+getAndRenderNotes();
