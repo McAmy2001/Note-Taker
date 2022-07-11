@@ -13,10 +13,10 @@ Watch a demonstration [here](https://drive.google.com/file/d/1ru8rIwUQtuaWZ1n8QW
 The application is available at [https://shrouded-hamlet-63560.herokuapp.com/](https://shrouded-hamlet-63560.herokuapp.com/).
 ## Usage 
 Click on the start button on the initial landing page. On the notes page enter the note title and text then click the save icon in the upper right corner. The note will appear in the column on the left of the screen. To view a saved note note, click on the note and it will populate the active note area. Use the add (plus sign) button to add a new note and the delete (trash icons) buttons to delete saved notes.
-![Screenshot](./Assets/Screen%20Shot%202022-07-11%20at%207.34.18%20AM%20Small.jpeg)
-![Screenshot](./Assets/Screen%20Shot%202022-07-11%20at%207.34.45%20AM%20Small.jpeg)
-![Screenshot](./Assets/Screen%20Shot%202022-07-11%20at%207.35.27%20AM%20Small.jpeg)
-![Screenshot](./Assets/Screen%20Shot%202022-07-11%20at%208.11.29%20AM%20Small.jpeg)
+![Screenshot](./assets/Screen%20Shot%202022-07-11%20at%207.34.18%20AM%20Small.jpeg)
+![Screenshot](./assets/Screen%20Shot%202022-07-11%20at%207.34.45%20AM%20Small.jpeg)
+![Screenshot](./assets/Screen%20Shot%202022-07-11%20at%207.35.27%20AM%20Small.jpeg)
+![Screenshot](./assets/Screen%20Shot%202022-07-11%20at%208.11.29%20AM%20Small.jpeg)
 ## License 
 &copy; 2022 by Amy McCabe. 
 This project is licensed under the MIT license.
