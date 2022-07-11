@@ -30,6 +30,27 @@ function validateNote(note) {
   return true;
 };
 
+function removeNote(toDeleteId) {
+  console.log(toDeleteId);
+  fs.readFile('./db/db.json', 'utf8', (err, data) => {
+    if (err) {
+      console.log(err);
+      return;
+    } 
+    let notesArray = JSON.parse(data)
+    console.log(notesArray);
+    for (let i = 0; i < notesArray.length; i++) {
+      if (notesArray[i].id === toDeleteId) {
+        notesArray.splice([i], 1);
+      }
+      console.log(notesArray);
+    }
+    fs.writeFileSync('./db/db.json', JSON.stringify(notesArray));
+    return notesArray;
+  })
+  
+};
+
 // This nifty function comes straight from Module 11, Activites, 05-Data Persistence
 // Math.floor: rounds number down to the nearest interger
 // Math.random: returns a random number >= 0 and < 1
@@ -67,12 +88,6 @@ app.get('*', (req,res) => {
   res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
-app.get('/api/notes/:id', (req, res) => {
-  const result = (req.params.id);
-  console.log(result);
-  res.json(result);
-});
-
 app.post('/api/notes', (req, res) => {
   if (!validateNote(req.body)) {
     res.status(400).send('The note is not properly formatted.');
@@ -82,6 +97,12 @@ app.post('/api/notes', (req, res) => {
   
   res.json(note);
   }
+});
+
+app.delete('/api/notes/:id', (req, res) => {
+  const toDeleteId = (req.params.id);
+  removeNote(toDeleteId);
+  res.json();
 });
 
 app.listen(PORT, () => {

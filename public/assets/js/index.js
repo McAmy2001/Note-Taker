@@ -72,16 +72,7 @@ const deleteNote = id =>
     } else {
       alert('Error: ' + response.statusText);
     }
-    return response;
-  }).then(response => {
-    response.json()
-  })
-  .then(data => {
-    console.log(data);
-  })
-  .catch(error => {
-    console.log(error);
-  })
+});
 
 const renderActiveNote = () => {
   hide(saveNoteBtn);
