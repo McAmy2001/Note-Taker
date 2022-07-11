@@ -55,7 +55,6 @@ const saveNote = note =>
     alert('Error: ' + response.statusText);
   })
   .then(postResponse => {
-    console.log(postResponse);
     alert('Thank you for adding a note!');
   });
 

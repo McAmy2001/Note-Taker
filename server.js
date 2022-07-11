@@ -11,13 +11,11 @@ app.use(express.static('public'));
 
 function createNewNote(body) {
   const currentNotes = fs.readFileSync('./db/db.json', 'utf8');
-
   const note = body;
   const currentNotesArray = [];
   const concatNotesArray = currentNotesArray.concat(JSON.parse(currentNotes)); 
   let addingNewNote = [...concatNotesArray, note];
   fs.writeFileSync('./db/db.json', JSON.stringify(addingNewNote));
-  console.log(concatNotesArray);
   return note;
 };
 function validateNote(note) {
@@ -31,19 +29,16 @@ function validateNote(note) {
 };
 
 function removeNote(toDeleteId) {
-  console.log(toDeleteId);
   fs.readFile('./db/db.json', 'utf8', (err, data) => {
     if (err) {
       console.log(err);
       return;
     } 
     let notesArray = JSON.parse(data)
-    console.log(notesArray);
     for (let i = 0; i < notesArray.length; i++) {
       if (notesArray[i].id === toDeleteId) {
         notesArray.splice([i], 1);
       }
-      console.log(notesArray);
     }
     fs.writeFileSync('./db/db.json', JSON.stringify(notesArray));
     return notesArray;
@@ -68,8 +63,6 @@ function makeId() {
 app.get('/api/notes', (req, res) => {
   try {
   const currentNotes = fs.readFileSync('./db/db.json', 'utf8');
-  //console.log(currentNotes);
-  //console.log(JSON.parse(currentNotes));
   res.json(JSON.parse(currentNotes));
   } catch (err) {
     res.status(400).json(err);
