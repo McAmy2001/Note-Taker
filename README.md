@@ -1,10 +1,11 @@
-# Bootcamp Module 11: Express.js, Challenge: Note Taker
+# Note Taker
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## This is a simple note taking application that allows the user to enter notes with title and text input fields. The notes are saved in a data file and displayed on the page. Notes can be deleted. This project uses starter code from bootcamp.
 Watch a demonstration [here](https://drive.google.com/file/d/1GcbPPLbGfnvWzIbB0tE7NJOfwAQefcRG/view?usp=sharing).
 ## Table of Contents:
 - [Installation](#installation)
 - [Usage](#usage)
+- [Technologies](#technologies)
 - [License](#license)
 - [Contributing](#contributing)
 - [Testing](#tests)
@@ -21,6 +22,14 @@ Click on the start button on the initial landing page. On the notes page enter t
 ![Screenshot](./assets/Screen%20Shot%202022-07-11%20at%207.35.27%20AM%20Small.jpeg)
 
 ![Screenshot](./assets/Screen%20Shot%202022-07-11%20at%208.11.29%20AM%20Small.jpeg)
+
+## Technologies
+- Javascript
+- HTML
+- CSS / [Bootstrap](https://getbootstrap.com/)
+- [Express](https://expressjs.com/)
+- [Jest](https://jestjs.io/)
+
 ## License 
 &copy; 2022 by Amy McCabe. 
 This project is licensed under the MIT license.
